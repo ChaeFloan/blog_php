@@ -1,0 +1,44 @@
+<h1 class="text-center my-5">Bienvenue sur ta page, <?= $_SESSION["auth"]["username"] ?></h1>
+
+
+<div class="container bg-light p-4">
+    <div class="row">
+        <div class="col-sm-4 avatar">
+            <img src="images/pp.jpg" style="width: 200px">
+        </div>
+        <div class="col-sm-4 infos">
+            <div>
+                <p>Pseudo : <?= $_SESSION["auth"]["username"] ?></p>
+                <p>Email : <?= $_SESSION["auth"]["email"] ?></p>
+                <p>Membre depuis : <?= $_SESSION["auth"]["creation_date"] ?></p>
+            </div>
+        </div>
+
+        <div class="col-sm-4 d-flex flex-column">
+            <button class="btn btn-secondary m-2"><a href="#" class="link-dark">Modifier les informations</a></button>
+            <button class="btn btn-secondary m-2"><a href="#" class="link-dark">Supprimer le profil</a></button>
+        </div>
+    </div>
+</div>
+
+<!-- Affichage des articles rédigés par l'utilisateur connecté -->
+<div class="container">
+    <h2 class="my-4">Articles écrits par <?= $_SESSION["auth"]["username"] ?>: </h2><br/>
+    <?php foreach($newPost as $post): ?>
+    <div class="card my-4">
+        <h5 class="card-header"><?= $post["name"] ?></h5>
+        <div class="card-body">
+            <h5 class="card-title"><?= $post["title"] ?></h5>
+            <p class="card-text"><?= $post["content"] ?></p>
+        </div>
+        <div class="card-footer text-muted d-flex justify-content-between">
+            <div>
+                <?= $post["username"] ?>
+            </div>
+            <div>
+                <?= $post["creation_date"] ?>
+            </div>
+        </div>
+    </div>
+<?php endforeach ?>
+</div>

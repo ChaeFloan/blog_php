@@ -1,0 +1,18 @@
+<h1 class="text-center my-5">Accès compte utilisateur</h1>
+
+
+
+<form method="post" action="connexionUser.php">
+  <fieldset>
+    <legend>Tous les champs doivent être remplis :</legend>
+    <div class="mb-3">
+      <label for="username" class="form-label">Pseudonyme</label>
+      <input type="text" id="username" name="username" class="form-control" require>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input type="password" id="password" name="password" class="form-control" require>
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+  </fieldset>
+</form>

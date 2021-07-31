@@ -1,0 +1,21 @@
+<h1 class="my-5 text-center">Nouvel utilisateur</h1>
+
+
+<form method="post" action="newUser.php">
+  <fieldset>
+    <legend>Tous les champs doivent être remplis :</legend>
+    <div class="mb-3">
+      <label for="username" class="form-label">Nom d'utilisateur</label>
+      <input type="text" id="username" name="username" class="form-control" require>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Adresse mail</label>
+      <input type="email" id="email" name="email" class="form-control" require>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input type="password" id="password" name="password" class="form-control" require>
+    </div>
+    <button type="submit" class="btn btn-primary">Valider l'inscription</button>
+  </fieldset>
+</form>

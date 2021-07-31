@@ -1,0 +1,72 @@
+<h1 class="text-center my-5">Bienvenue sur le blog Lorem Ipsum PHP</h1>
+
+
+<?php foreach($newPost as $post): ?>
+    <div class="card my-4">
+        <h5 class="card-header"><?= $post["name"] ?></h5>
+        <div class="card-body">
+            <h5 class="card-title"><?= $post["title"] ?></h5>
+            <p class="card-text"><?= $post["content"] ?></p>
+        </div>
+        <div class="card-footer text-muted d-flex justify-content-between">
+            <div>
+                <?= $post["username"] ?>
+            </div>
+            <div>
+                <?= $post["creation_date"] ?>
+            </div>
+        </div>
+    </div>
+<?php endforeach ?>
+
+
+<!-- <div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <h5 class="card-header">"category"</h5>
+            <div class="card-body">
+                <h5 class="card-title">"title"</h5>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, molestiae ducimus! Nam aliquid odit fuga nisi repudiandae, ipsum quas quos eligendi explicabo sint tempora, mollitia autem obcaecati magnam architecto aliquam.</p>
+            </div>
+            <div class="card-footer text-muted d-flex justify-content-between">
+                <div>
+                    Auteur
+                </div>
+                <div>
+                    Date de création
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <h5 class="card-header">"category"</h5>
+            <div class="card-body">
+                <h5 class="card-title">"title"</h5>
+                <p class="card-text">"content""</p>
+            </div>
+            <div class="card-footer text-muted d-flex justify-content-between">
+                <div>
+                    Auteur
+                </div>
+                <div>
+                    Date de création
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- PAGINATION -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Première page</a></li>
+    <li class="page-item"><a class="page-link" href="#">Précédent</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+    <li class="page-item"><a class="page-link" href="#">Dernière page</a></li>
+  </ul>
+</nav>

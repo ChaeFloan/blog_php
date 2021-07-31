@@ -1,0 +1,72 @@
+<?php
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Blog_php</title>
+</head>
+<body>
+    <!-- BARRE DE NAVIGATION Présente sur toutes les pages -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><i class="fas fa-align-left"></i> Blog_PHP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+            </li>
+
+            <!-- Si non connecté : Connexion / S'inscrire -->
+            <?php if(!isset($_SESSION["auth"])): ?>
+                <li class="nav-item">
+                <a class="nav-link" href="connexionUser.php">Connexion</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="newUser.php">S'inscrire</a>
+                </li>
+            <?php endif ?>
+        
+            <!-- Si connecté : Déconnexion -->
+            <?php if(isset($_SESSION["auth"])): ?>
+                <li class="nav-item">
+                <a class="nav-link" href="userProfil.php">Bienvenue <?= $_SESSION["auth"]["username"] ?></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="deconnexion.php">Déconnexion</a>
+                </li>
+            <?php endif ?>
+
+            <!-- BOUTON DROP - if => connecté : proposer la modification des articles -->
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Accès administrateur
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="newArticle.php">Ajouter un article</a></li>
+                <li><a class="dropdown-item" href="#">Modifier / supprimer un article</a></li>
+            </ul>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+    <div class="container">
+        <?php require $template ?>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
