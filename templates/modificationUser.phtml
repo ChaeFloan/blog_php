@@ -1,0 +1,34 @@
+<h1 class="my-5 text-center">Modification des données utilisateur</h1>
+
+
+<form method="post" action="modificationUser.php">
+  <fieldset>
+    <div class="mb-3">
+      <label for="username" class="form-label">Votre pseudo</label>
+      <input type="text" id="username" name="username" class="form-control" value="<?= $_SESSION["auth"]["username"] ?>">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Adresse mail</label>
+      <input type="email" id="email" name="email" class="form-control" value="<?= $_SESSION["auth"]["email"] ?>">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe actuel</label>
+      <input type="password" id="password" name="password" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="newpassword" class="form-label">Nouveau mot de passe</label>
+      <input type="password" id="password" name="newpassword" class="form-control">
+    </div>
+    <!-- Si les champs password et newpassword sont renseignés -->
+    <?php if(isset($_POST["password"]) && isset($_POST["newpassword"])): ?>
+        <!-- Si le nouveau mot de passe est identique au mot de passe actuel -->
+        <?php if($_POST["newpassword"] === $_POST["password"]): ?>
+            <div>
+                <p><?php $passwordExisting ?></p>
+            </div>
+        <?php endif ?>
+    <?php endif ?>
+
+    <button type="submit" class="btn btn-primary">Valider les modifications</button>
+  </fieldset>
+</form>

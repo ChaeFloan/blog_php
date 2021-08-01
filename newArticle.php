@@ -1,9 +1,9 @@
 <?php
 require "functions/connexion.php";
+require "functions/sessionStart.php";
+
 $db = getConnexion();
-if(session_status() === PHP_SESSION_NONE){
-    session_start();
-}
+
 
 // Récupérer les données relatives à la "category" pour les ajouter au <select> html
 $query = $db->prepare(

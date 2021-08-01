@@ -1,5 +1,7 @@
 <?php
 require "functions/connexion.php";
+require "functions/sessionStart.php";
+
 $db = getConnexion();
 
 

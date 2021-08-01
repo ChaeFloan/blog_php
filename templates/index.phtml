@@ -19,16 +19,16 @@
 <?php endforeach ?>
 
 <!-- PAGINATION -->
-<ul class="pagination">
-    <li class="page-item"><a class="page-link" href="index.php?page=1">Première page</a></li>
-
-    <li class="page-item"><a class="page-link" href="index.php?page=<?= $pagePrecedente ?>">Précédent</a></li>
+<ul class="pagination justify-content-center">
+    <li class="page-item <?php if($page == 1): ?>disabled<?php endif ?>"><a class="page-link" href="index.php?page=1">Première page</a></li>
+    
+    <li class="page-item <?php if($page == 1): ?>disabled<?php endif ?>"><a class="page-link" href="index.php?page=<?= $pagePrecedente ?>">Précédent</a></li>
 
     <?php for($i = 1 ; $i <= $nbrPages ; $i++): ?>
         <li class="page-item"><a class="page-link" href="index.php?page=<?= $i ?>"><?= $i ?></a></li>
     <?php endfor ?>
 
-    <li class="page-item"><a class="page-link" href="index.php?page=<?= $pageSuivante ?>">Suivant</a></li>
+    <li class="page-item <?php if($page == $nbrPages): ?>disabled<?php endif ?>"><a class="page-link" href="index.php?page=<?= $pageSuivante ?>">Suivant</a></li>
 
-    <li class="page-item"><a class="page-link" href="#">Dernière page</a></li>
+    <li class="page-item <?php if($page == $nbrPages): ?>disabled<?php endif ?>"><a class="page-link" href="#">Dernière page</a></li>
   </ul>

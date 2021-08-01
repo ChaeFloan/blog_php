@@ -1,9 +1,7 @@
 <?php
 require "functions/connexion.php";
 require "functions/user.php";
-if(session_status() === PHP_SESSION_NONE){
-    session_start();
-}
+require "functions/sessionStart.php";
 
 $db = getConnexion();
 

@@ -1,8 +1,6 @@
 <?php
 require "functions/connexion.php";
-if(session_status() === PHP_SESSION_NONE){
-    session_start();
-}
+require "functions/sessionStart.php";
 $db = getConnexion();
 
 // Compte du nombre de posts
@@ -12,7 +10,6 @@ $query = $db->prepare(
 );
 $query->execute();
 $totalPosts = $query->fetchAll();
-
 
 // Récupérer de la BDD les informations du post créé précédemment, pour l'afficher avec les autres posts sur l'accueil
 
@@ -62,9 +59,6 @@ $query = $db->prepare(
 );
 $query->execute();
 $allPosts = $query->fetchAll();
-
-
-
 
 
 
