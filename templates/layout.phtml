@@ -11,7 +11,7 @@ if(session_status() === PHP_SESSION_NONE){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+    <link rel="stylesheet" href="style.css">
     <title>Blog_php</title>
 </head>
 <body>
@@ -43,21 +43,21 @@ if(session_status() === PHP_SESSION_NONE){
                 <li class="nav-item">
                 <a class="nav-link" href="userProfil.php">Bienvenue <?= $_SESSION["auth"]["username"] ?></a>
                 </li>
+                <!-- Partie ajout / modification / suppression des articles -->
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Accès administrateur
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="newArticle.php">Ajouter un article</a></li>
+                    <li><a class="dropdown-item" href="#">Modifier / supprimer un article</a></li>
+                </ul>
+                </li>
+                <!-- Déconnexion -->
                 <li class="nav-item">
                 <a class="nav-link" href="deconnexion.php">Déconnexion</a>
                 </li>
             <?php endif ?>
-
-            <!-- BOUTON DROP - if => connecté : proposer la modification des articles -->
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Accès administrateur
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="newArticle.php">Ajouter un article</a></li>
-                <li><a class="dropdown-item" href="#">Modifier / supprimer un article</a></li>
-            </ul>
-            </li>
         </ul>
         </div>
     </div>

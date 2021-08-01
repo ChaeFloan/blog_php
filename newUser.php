@@ -15,7 +15,7 @@ if(!empty($_POST)){
         password_hash($_POST["password"], PASSWORD_BCRYPT)
     ]);
 
-    header("Location: index.php");
+    header("Location: connexionUser.php");
     exit();
 }
 

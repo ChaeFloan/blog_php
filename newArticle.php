@@ -1,6 +1,9 @@
 <?php
 require "functions/connexion.php";
 $db = getConnexion();
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
 // Récupérer les données relatives à la "category" pour les ajouter au <select> html
 $query = $db->prepare(
@@ -10,10 +13,7 @@ $query = $db->prepare(
 $query->execute();
 $categories = $query->fetchAll();
 
-// echo '<pre>';
-// var_dump($categories);
-// echo '</pre>';
-
+// Ici on relie le username avec le user_id de chaque post
 $query = $db->prepare(
     "SELECT u.username
     FROM users u
@@ -21,12 +21,8 @@ $query = $db->prepare(
 );
 $query->execute();
 
-
 //Enregistrer les infos renseignées dans les input, dans la BDD
 if(!empty($_POST)){
-    // echo '<pre>';
-    // var_dump($_POST);
-    // echo '</pre>';
     $query = $db->prepare(
         "INSERT INTO posts (title, content, category_id, user_id, creation_date)
         VALUES (?, ?, ?, ?, NOW())"
@@ -35,7 +31,7 @@ if(!empty($_POST)){
         $_POST["title"],
         $_POST["content"],
         $_POST["category_id"],
-        $_SESSION["auth"]["user_id"]
+        $_SESSION["auth"]["id"]
     ]);    
     header("Location: index.php");
     exit();

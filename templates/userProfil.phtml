@@ -23,7 +23,7 @@
 
 <!-- Affichage des articles rédigés par l'utilisateur connecté -->
 <div class="container">
-    <h2 class="my-4">Articles écrits par <?= $_SESSION["auth"]["username"] ?>: </h2><br/>
+    <h2 class="my-4">Articles écrits par <?= $_SESSION["auth"]["username"] ?> : </h2><br/>
     <?php foreach($newPost as $post): ?>
     <div class="card my-4">
         <h5 class="card-header"><?= $post["name"] ?></h5>

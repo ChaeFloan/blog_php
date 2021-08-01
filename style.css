@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Bungee&family=Neucha&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+/* font-family : 'Palette Mosaic', cursive; */
+/* font-family: 'Style Script', cursive; */
+/* font-family: 'Dancing Script', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Aclonica', sans-serif;
+
+font-family: 'Bungee', cursive;
+font-family: 'Bungee Hairline', cursive;
+
+font-family: 'Neucha', cursive;
+font-family: 'Shrikhand', cursive; */
+
+/* h1 {
+    font-family: 'Style Script', cursive;
+} */
+
+* {
+    font-size: 16px;
+    font-family: 'Neucha', cursive;
+}
+
+html {
+    font-size: 1.5em;
+}
